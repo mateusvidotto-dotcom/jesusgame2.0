@@ -1,55 +1,48 @@
 # THE WITNESS: THE WAY — O ÚLTIMO REINO
 
-**Edição narrativa web jogável — versão 1.0**  
-Adaptação autoral da *Bíblia de Desenvolvimento Narrativo V2.0*, fornecida pelo usuário.
+Aventura narrativa 2D para navegador, construída a partir da Bíblia de Desenvolvimento Narrativo v2.0.
 
-## O que está incluído
+## Executar
 
-- Prólogo cósmico interativo e interlúdio do Conselho de Continuidade em 2075.
-- Campanha principal com as **25 missões** distribuídas nos cinco atos do documento.
-- Três etapas de decisão por missão, com consequências narrativas.
-- Sistema de estado para integridade dos registros, confiança de Sela e Mattan, abertura de Mara, coragem de Ishan e coesão comunitária.
-- Três desfechos humanos possíveis: **Arquivo Aberto**, **Memória sob Custódia** e **Testemunho Particular**.
-- A Segunda Vinda continua sendo o clímax fixo da narrativa, independentemente das escolhas.
-- Códice dividido em Texto bíblico, Contexto, Interpretação e Ficção do jogo.
-- Diário de decisões, elenco, jornada, cronologia, progresso e salvamento local.
-- Exportação/importação do progresso em JSON e opções de acessibilidade.
+Abra `index.html` em um navegador moderno. Para desenvolvimento local, recomenda-se servir a pasta por um servidor estático (por exemplo, `python -m http.server 8000`) e abrir `http://localhost:8000`.
 
-## Como jogar
+Não há dependências de runtime nem serviços externos obrigatórios. As fontes web são opcionais; o navegador usa alternativas locais se estiver offline.
 
-### Opção simples
+## O que está implementado
 
-Abra `index.html` em um navegador moderno.
-
-### Opção recomendada (servidor local)
-
-Com Python 3 instalado, execute na pasta do jogo:
-
-**Windows:** abra `iniciar_jogo_windows.bat`.
-
-**Linux/macOS:** execute `./iniciar_jogo_linux_mac.sh`.
-
-Depois abra `http://localhost:8000` no navegador. O servidor só publica os arquivos na própria máquina; não é necessário instalar dependências nem ter internet.
+- Campanha com prólogo jogável e as 25 missões da bíblia narrativa.
+- Cena 2D renderizada em Canvas com cenários distintos (Meridian, Galileia, Jerusalém e sequência final).
+- Personagens desenhados proceduralmente no Canvas, com movimento de repouso e animação sutil; Aren é controlável.
+- Exploração com WASD/setas, controles touch e interação contextual.
+- Decisões com consequências em Integridade do Registro, Vínculos e Comunidade.
+- Três finais humanos convergentes para o clímax fixo da Segunda Vinda.
+- Elenco, códice, diário de decisões, autosave local, exportação e importação JSON.
+- Layout responsivo e respeito a `prefers-reduced-motion`.
 
 ## Controles
 
-O jogo é controlado por mouse, toque ou teclado do navegador. Escolha uma das opções narrativas e avance pelos registros de campo. As abas superiores abrem o Códice, Diário, Elenco, Jornada e Opções. O progresso é salvo automaticamente no armazenamento local do navegador; use **Opções → Exportar progresso** para guardar uma cópia.
+- WASD ou setas: mover Aren.
+- E: interagir quando estiver perto do ponto marcado.
+- Celular: controles direcionais na cena e botão Interagir.
+- Menu: exportar/importar salvamento ou reiniciar campanha.
 
-## Requisitos e arquitetura
+## Diretrizes narrativas preservadas
 
-- HTML5, CSS e JavaScript puro.
-- Sem framework, banco de dados, conta, backend ou dependências de runtime.
-- `campaign-data.js`: campanha, personagens, prelúdios e Códice.
-- `app.js`: estado da campanha, escolhas, desbloqueios, salvamento e renderização.
-- `styles.css`: interface responsiva e estilos.
-- `index.html`: ponto de entrada.
+- Jesus não é controlável, capturável, chefe ou ferramenta de progressão.
+- O jogador não altera os acontecimentos bíblicos centrais.
+- A Segunda Vinda é o clímax fixo e não depende de pontuação.
+- A moldura escatológica futurista é identificada como interpretação escolhida pela obra, não consenso cristão.
+- APX, Haldren, Concórdia e Selo são ficcionais; nenhuma tecnologia real é identificada como marca da Besta.
+- A obra distingue registro bíblico, contexto histórico, interpretação e ficção.
 
-## Fidelidade e limites editoriais
+## Limites desta entrega
 
-A versão preserva os marcos centrais do documento: Aren não altera o chamado dos discípulos, os milagres, a Paixão ou a ressurreição; não é testemunha canônica adicional; Jesus não é controlável, capturável ou chefe de fase; não há combate contra Cristo ou contra o Pacificador; e a Segunda Vinda não é condicionada ao desempenho do jogador.
+Esta é uma versão jogável completa em estrutura e campanha, mas ainda não equivale a uma produção comercial final: arte de personagens e cenários é vetorial/procedural, sem spritesheets pintadas quadro a quadro; não há dublagem, trilha licenciada, localização profissional ou consultoria histórica/teológica externa. A camada sonora está preparada apenas como controle de interface, sem faixas incorporadas. O texto bíblico é citado por referências, evitando reproduzir traduções protegidas.
 
-O jogo também preserva as distinções entre registro bíblico, contexto, interpretação e ficção. A leitura futurista do Apocalipse é identificada como a escolha teológica desta obra, não como consenso de todas as tradições cristãs. O Selo da Concórdia e o APX permanecem elementos ficcionais; nenhuma tecnologia ou pessoa real é identificada como cumprimento profético.
+## Estrutura
 
-## Escopo desta entrega
-
-Esta é uma **edição narrativa web completa e jogável da campanha**, com todas as 25 missões representadas por cenas, decisões e consequências. Ela não é uma produção AAA em 3D, não possui captura de movimento, dublagem, trilha licenciada, multiplayer ou a duração estimada de 20–26 horas citada como planejamento no documento. Essas características exigiriam equipe, orçamento, ativos audiovisuais e produção externa. O jogo entregue é funcional como experiência narrativa independente e expansível.
+- `index.html`: aplicação.
+- `styles.css`: interface responsiva.
+- `campaign.js`: dados das 25 missões.
+- `game.js`: renderização, controles, decisões, salvamento e códice.
+- `assets/favicon.svg`: ícone original.
